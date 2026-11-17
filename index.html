@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hospedaje San Alberto | Ráquira Boyacá</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#fafafa;
+    color:#333;
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(8px);
+    z-index:1000;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    color:white;
+    font-size:1.4rem;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:#f7b731;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.55)),
+    url("raquira-portada.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    color:white;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:4.5rem;
+    margin-bottom:10px;
+    text-shadow:0 4px 15px rgba(0,0,0,.35);
+}
+
+.hero h2{
+    font-size:2rem;
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+.hero p{
+    max-width:850px;
+    margin:0 auto 35px;
+    font-size:1.2rem;
+}
+
+.hero-icons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.hero-icons span{
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,.20);
+    padding:12px 18px;
+    border-radius:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#25D366;
+    color:white;
+    padding:16px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#1fa851;
+    transform:translateY(-2px);
+}
+
+section{
+    padding:90px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+    font-size:2.2rem;
+    color:#1f4e79;
+}
+
+.bienvenida{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.bienvenida img{
+    width:100%;
+    height:650px;
+    object-fit:cover;
+}
+
+.bienvenida h2{
+    color:#1f4e79;
+    margin-bottom:20px;
+    font-size:2rem;
+}
+
+.bienvenida p{
+    margin-bottom:20px;
+    text-align:justify;
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+.bienvenida ul{
+    list-style:none;
+}
+
+.bienvenida li{
+    margin-bottom:12px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#ffffff;
+    border-radius:20px;
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:all .3s ease;
+
+    height:100%;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.card-image{
+    height:250px;
+    background:#dcdcdc;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    color:#666;
+}
+
+.card-content{
+    padding:32px;
+
+}
+
+.card-content h3{
+    margin-bottom:10px;
+    color:#1f4e79;
+}
+
+.capacidad{
+    display:inline-block;
+    background:#e8f4ff;
+    color:#1f4e79;
+    font-weight:600;
+    padding:10px 16px;
+    border-radius:25px;
+    margin-bottom:18px;
+}
+
+.apartamento-desc{
+    margin-top:18px;
+    color:#666;
+    line-height:1.7;
+    font-style:italic;
+}
+
+.card-content ul{
+    list-style:none;
+    padding:0;
+    margin-top:10px;
+}
+
+.card-content li{
+    margin-bottom:8px;
+}
+
+.turismo{
+    background:#f4f7fa;
+}
+
+.turismo-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.turismo-box{
+    background:#ffffff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    display:flex;
+    flex-direction:column;
+
+    transition:.3s;
+    height:100%;
+}
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+
+    border-radius:18px;
+
+    transition:.3s ease;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+.gallery div{
+    height:180px;
+    background:#dedede;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.ubicacion{
+    background:#f4f7fa;
+    text-align:center;
+}
+
+.ubicacion-beneficios{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+}
+
+.ubicacion-beneficios div{
+    background:#ffffff;
+    padding:12px 18px;
+    border-radius:25px;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.reserva{
+    background:#1f4e79;
+    color:white;
+    text-align:center;
+}
+
+.reserva-beneficios{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin:30px 0;
+}
+
+.reserva-beneficios span{
+    background:rgba(255,255,255,.15);
+    padding:12px 18px;
+    border-radius:25px;
+}
+
+footer{
+    background:#112f48;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.whatsapp{
+    position:fixed;
+    bottom:30px;
+    right:15px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    text-decoration:none;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+    z-index:999;
+}
+
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:2.4rem;
+    }
+
+    .hero h2{
+        font-size:1.3rem;
+    }
+
+    .bienvenida{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+HOSPEDAJE SAN ALBERTO
+</div>
+
+<nav>
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#nosotros">Nosotros</a></li>
+<li><a href="#alojamientos">Alojamientos</a></li>
+<li><a href="#turismo">Turismo</a></li>
+<li><a href="#galeria">Galería</a></li>
+<li><a href="#ubicacion">Ubicación</a></li>
+<li><a href="#reservas">Reservas</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <h1>Hospedaje San Alberto</h1>
+
+        <h2>
+            Descansa y descubre la magia artesanal de Ráquira
+        </h2>
+
+        <p>
+            Tres apartamentos turísticos completamente equipados para familias,
+            grupos de amigos y viajeros que desean descubrir el pueblo artesanal
+            más colorido de Colombia.
+        </p>
+
+        <div class="hero-icons">
+
+            <span>🏡 3 Apartamentos</span>
+
+            <span>👥 Hasta 25 Huéspedes</span>
+
+            <span>📶 WiFi</span>
+
+            <span>🚗 Parqueadero</span>
+
+            <span>🐾 Mascotas</span>
+
+            <span>📍 A pocos minutos de los principales atractivos turísticos de Ráquira</span>
+
+        </div>
+
+        <a href="https://wa.me/573124350906?text=Hola.%20Estoy%20interesado%20en%20Hospedaje%20San%20Alberto%20en%20Ráquira.%20¿Podrían%20compartirme%20información%20sobre%20disponibilidad,%20tarifas%20y%20capacidad%20de%20los%20apartamentos?"
+        class="btn"
+        target="_blank">
+
+            📲 Consultar Disponibilidad
+
+        </a>
+
+    </div>
+
+</section>
+
+<section id="nosotros">
+
+<div class="container">
+
+<div class="bienvenida">
+
+<div>
+<img src="fachada-san-alberto.jpg" alt="Hospedaje San Alberto">
+</div>
+
+<div>
+
+<h2>Bienvenidos a Hospedaje San Alberto</h2>
+
+<p>
+Hospedaje San Alberto es una excelente opción para familias, grupos de amigos y viajeros que desean disfrutar de la tranquilidad de Ráquira con todas las comodidades necesarias para una estadía confortable.
+
+Disfruta de un ambiente familiar, atención personalizada y una ubicación estratégica para descubrir los principales atractivos turísticos y culturales del municipio.</p>
+
+<ul>
+<li>✅ Apartamentos totalmente equipados</li>
+<li>✅ Capacidad hasta 25 huéspedes</li>
+<li>✅ WiFi gratuito</li>
+<li>✅ Parqueadero disponible</li>
+<li>✅ Se admiten mascotas</li>
+<li>✅ Agua caliente</li>
+<li>✅ Espacios amplios y confortables</li>
+<li>✅ Ambiente tranquilo y seguro</li>
+<li>✅ Atención personalizada</li>
+<li>✅ Excelente ubicación turística</li>
+
+
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="alojamientos">
+
+<div class="container">
+
+<h2 class="section-title">
+Nuestros Apartamentos
+</h2>
+
+<p style="text-align:center;max-width:900px;margin:0 auto 50px auto;">
+Espacios cómodos, completamente equipados y pensados para que disfrutes una estadía tranquila en Ráquira junto a tu familia, amigos o grupo de viaje.
+</p>
+
+<div class="cards">
+
+    <!-- APARTAMENTO 1 -->
+
+    <div class="card">
+
+        <div class="card-image">
+            FOTO APARTAMENTO 1
+        </div>
+
+        <div class="card-content">
+
+            <h3>🏡 Apartamento 1</h3>
+
+            <div class="capacidad">
+                👥 Hasta 10 huéspedes
+            </div>
+
+            <ul>
+                <li>✅ 3 habitaciones</li>
+                <li>✅ 2 baños</li>
+                <li>✅ Cocina equipada</li>
+                <li>✅ Sala y comedor</li>
+            </ul>
+
+            <p class="apartamento-desc">
+                Ideal para familias numerosas y grupos que buscan amplitud, comodidad y una estancia inolvidable en Ráquira.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- APARTAMENTO 2 -->
+
+    <div class="card">
+
+        <div class="card-image">
+            FOTO APARTAMENTO 2
+        </div>
+
+        <div class="card-content">
+
+            <h3>🏡 Apartamento 2</h3>
+
+            <div class="capacidad">
+                👥 Hasta 7 huéspedes
+            </div>
+
+            <ul>
+                <li>✅ 2 habitaciones</li>
+                <li>✅ 1 baño</li>
+                <li>✅ Cocina equipada</li>
+                <li>✅ Sala y comedor</li>
+            </ul>
+
+            <p class="apartamento-desc">
+                Una excelente opción para familias pequeñas o grupos de amigos que desean comodidad y tranquilidad.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- APARTAMENTO 3 -->
+
+    <div class="card">
+
+        <div class="card-image">
+            FOTO APARTAMENTO 3
+        </div>
+
+        <div class="card-content">
+
+            <h3>🏡 Apartamento 3</h3>
+
+            <div class="capacidad">
+                👥 Hasta 8 huéspedes
+            </div>
+
+            <ul>
+                <li>✅ 2 habitaciones</li>
+                <li>✅ 1 baño</li>
+                <li>✅ Cocina equipada</li>
+                <li>✅ Sala y comedor</li>
+            </ul>
+
+            <p class="apartamento-desc">
+                Perfecto para compartir en familia mientras disfrutas de la cultura, artesanías y paisajes de Ráquira.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+<section class="turismo" id="turismo">
+
+<div class="container">
+
+<h2 class="section-title">
+Descubre Ráquira
+</h2>
+
+<div class="turismo-box intro-raquira-box">
+
+  <h3>✨ ¿Por qué visitar Ráquira?</h3>
+
+    <p>
+        🏺 <strong>Artesanías Tradicionales:</strong>
+        Reconocidas en toda Colombia por su color, creatividad y tradición.
+        El principal orgullo cultural de Ráquira.
+    </p>
+
+    <p>
+        🎨 <strong>Calles Coloridas:</strong>
+        Uno de los pueblos más hermosos y fotografiados de Boyacá gracias a
+        sus fachadas llenas de color.
+    </p>
+
+    <p>
+        🌄 <strong>Miradores y Naturaleza:</strong>
+        Paisajes espectaculares, aire puro y vistas panorámicas para disfrutar
+        durante tu visita a Ráquira.
+    </p>
+
+</div>
+<br><br><br>
+<h3 class="subtitulo-turismo">
+⭐ Imperdibles de Ráquira
+</h3>
+
+<div class="turismo-grid">
+
+    <div class="turismo-box">
+        <img src="turismo/casa-reves.jpg" alt="Casa al Revés Ráquira" class="turismo-img">
+        <h3>🏠 Casa al Revés Ráquira</h3>
+        <p>
+            Una de las atracciones más populares de Boyacá. Todo parece estar invertido, creando fotografías divertidas y experiencias únicas para toda la familia.
+        </p>
+    </div>
+
+    <div class="turismo-box">
+        <img src="turismo/pueblito-chueco.jpg" alt="Pueblito Chueco" class="turismo-img">
+        <h3>🎭 Pueblito Chueco</h3>
+        <p>
+            Un lugar lleno de color y creatividad con escenarios únicos, arquitectura inclinada y espacios perfectos para tomar fotografías inolvidables.
+        </p>
+    </div>
+
+    <div class="turismo-box">
+        <img src="turismo/castillo-artes.jpg" alt="Castillo de las Artes" class="turismo-img">
+        <h3>🏰 Castillo de las Artes y Mirador</h3>
+        <p>
+            Castillo temático con espacios artísticos, miradores panorámicos y espectaculares vistas del paisaje boyacense.
+        </p>
+    </div>
+
+    <div class="turismo-box">
+        <img src="turismo/mano-artesano.jpg" alt="Mano del Artesano" class="turismo-img">
+        <h3>🖐️ Mano del Artesano</h3>
+        <p>
+            Uno de los símbolos más representativos de Ráquira, ideal para fotografías y para conocer la esencia artesanal del municipio.
+        </p>
+    </div>
+
+    <div class="turismo-box">
+        <img src="turismo/olla-muisca.jpg" alt="Olla Gigante Muisca" class="turismo-img">
+        <h3>🏺 La Olla Gigante Muisca</h3>
+        <p>
+            Monumental representación de la tradición ceramista de Ráquira y homenaje a la cultura Muisca.
+        </p>
+    </div>
+
+    <div class="turismo-box">
+        <img src="turismo/finca-beraca.jpg" alt="Finca Beraca" class="turismo-img">
+        <h3>🌳 Finca Beraca Ecoturística</h3>
+        <p>
+            Un hermoso espacio rodeado de naturaleza donde podrás disfrutar de tranquilidad, paisajes rurales y actividades al aire libre.
+        </p>
+    </div>
+
+    <div class="turismo-box">
+        <img src="turismo/monasterio-candelaria.jpg" alt="Monasterio de La Candelaria" class="turismo-img">
+        <h3>⛪ Monasterio de La Candelaria</h3>
+        <p>
+            Uno de los monasterios más antiguos de Colombia y uno de los principales atractivos históricos y religiosos de Boyacá.
+        </p>
+    </div>
+
+    <div class="turismo-box">
+        <img src="turismo/laberinto-raquira.jpg" alt="Laberinto de Ráquira" class="turismo-img">
+        <h3>🌿 Laberinto de Ráquira</h3>
+        <p>
+            Un recorrido entretenido para todas las edades donde podrás disfrutar de naturaleza, aventura y diversión en familia.
+        </p>
+    </div>
+
+</div>
+
+</div>
+
+</section>
+</section>
+
+<section id="galeria">
+
+<div class="container">
+
+<h2 class="section-title">
+Galería
+</h2>
+
+<div class="gallery">
+<div>FOTO 1</div>
+<div>FOTO 2</div>
+<div>FOTO 3</div>
+<div>FOTO 4</div>
+<div>FOTO 5</div>
+<div>FOTO 6</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="ubicacion" id="ubicacion">
+
+<div class="container">
+
+<h2 class="section-title">
+📍 Ubicación Estratégica
+</h2>
+
+<p style="margin-bottom:30px;">
+Hospedaje San Alberto cuenta con una excelente ubicación para quienes desean recorrer los principales atractivos turísticos, culturales y artesanales de Ráquira.
+<br><br>
+Disfruta de una estadía cómoda con fácil acceso y cercanía a los lugares más representativos del municipio.
+</p>
+
+<div class="ubicacion-beneficios">
+
+    <div>📍 Excelente ubicación</div>
+
+    <div>🏺 Cerca de zonas artesanales</div>
+
+    <div>🚗 Fácil acceso vehicular</div>
+
+</div>
+
+<iframe
+src="https://maps.google.com/maps?q=5.5367754,-73.6321653&z=17&output=embed"
+width="100%"
+height="450"
+style="border:0;border-radius:20px;box-shadow:0 4px 15px rgba(0,0,0,.1);"
+allowfullscreen
+loading="lazy">
+</iframe>
+
+<br><br>
+
+<a href="https://www.google.com/maps/place/Hospedaje+San+Alberto/@5.5367754,-73.6321653,17z/data=!4m4!3m3!1s0x0:0xb4dc2a87fd8f69fa!11m1!2e1"
+class="btn"
+target="_blank">
+📍 Cómo llegar con Google Maps
+</a>
+
+<div style="margin-top:30px;">
+
+<h3 style="color:#1f4e79;">
+Información de Contacto
+</h3>
+
+<br>
+
+<p>📍 Ráquira, Boyacá, Colombia</p>
+<p>📞 WhatsApp: 312 435 0906</p>
+<p>🏡 Hospedaje San Alberto</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="reserva" id="reservas">
+
+<div class="container">
+
+<h2>
+📲 Consulta Disponibilidad y Tarifas
+</h2>
+
+<br>
+
+<p>
+Te responderemos rápidamente para brindarte información sobre disponibilidad, tarifas y el apartamento que mejor se adapte a tu grupo.
+</p>
+
+<div class="reserva-beneficios">
+
+    <span>⚡ Atención rápida</span>
+
+    <span>🏡 Información de apartamentos</span>
+
+    <span>📅 Disponibilidad inmediata</span>
+
+</div>
+
+<a href="https://wa.me/573124350906?text=Hola.%20Estoy%20interesado%20en%20Hospedaje%20San%20Alberto.%20%C2%BFPodr%C3%ADan%20compartirme%20informaci%C3%B3n%20sobre%20disponibilidad,%20tarifas%20y%20capacidad%20de%20los%20apartamentos?"
+class="btn"
+target="_blank">
+
+📲 Consultar por WhatsApp
+
+</a>
+
+</div>
+
+</section>
+<footer>
+
+<h3>HOSPEDAJE SAN ALBERTO</h3>
+
+<p>Ráquira • Boyacá • Colombia</p>
+
+<p>WhatsApp: 312 435 0906</p>
+
+<p>
+Tu hogar mientras descubres la magia artesanal de Boyacá.
+</p>
+
+</footer>
+
+<a href="https://wa.me/573124350906?text=Hola,%20estoy%20interesado%20en%20Hospedaje%20San%20Alberto"
+target="_blank"
+class="whatsapp">
+💬
+</a>
+
+</body>
+</html>
