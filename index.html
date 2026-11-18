@@ -213,13 +213,15 @@ section{
 }
 
 .card-image{
-    height:250px;
-    background:#dcdcdc;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
-    color:#666;
+    height:260px;
+    overflow:hidden;
+}
+
+.card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 .card-content{
@@ -537,8 +539,9 @@ Espacios cómodos, completamente equipados y pensados para que disfrutes una est
     <div class="card">
 
         <div class="card-image">
-            FOTO APARTAMENTO 1
-        </div>
+    <img src="apartamento1/principal.jpg"
+         alt="Sala y comedor Apartamento 1">
+</div>
 
         <div class="card-content">
 
@@ -568,8 +571,9 @@ Espacios cómodos, completamente equipados y pensados para que disfrutes una est
     <div class="card">
 
         <div class="card-image">
-            FOTO APARTAMENTO 2
-        </div>
+    <img src="apartamento2/principal.jpg"
+         alt="Sala y comedor Apartamento 2">
+</div>
 
         <div class="card-content">
 
@@ -598,9 +602,10 @@ Espacios cómodos, completamente equipados y pensados para que disfrutes una est
 
     <div class="card">
 
-        <div class="card-image">
-            FOTO APARTAMENTO 3
-        </div>
+       <div class="card-image">
+    <img src="apartamento3/principal.jpg"
+         alt="Sala y comedor Apartamento 3">
+</div>
 
         <div class="card-content">
 
